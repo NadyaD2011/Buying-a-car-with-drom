@@ -1,4 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import json
 
 env = Environment(
     loader=FileSystemLoader('.'),
@@ -7,41 +8,9 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-cars = [
-    {
-        "image": "картинка",
-        "model": "модель",
-        "price": "цена",
-        "year": "год",
-        "horsepower": "лошадиные силы",
-        "transmission": "коробка",
-        "gear": "передача",
-        "engine": "двигатель",
-        "mileage": "пробег"
-    },
-    {
-        "image": "картинка",
-        "model": "модель",
-        "price": "цена",
-        "year": "год",
-        "horsepower": "лошадиные силы",
-        "transmission": "коробка",
-        "gear": "передача",
-        "engine": "двигатель",
-        "mileage": "пробег"
-    },
-    {
-        "image": "картинка",
-        "model": "модель",
-        "price": "цена",
-        "year": "год",
-        "horsepower": "лошадиные силы",
-        "transmission": "коробка",
-        "gear": "передача",
-        "engine": "двигатель",
-        "mileage": "пробег"
-    }
-]
+with open("my.json", "r") as file:
+  cars = json.load(file)
+print(type(cars))
 
 rendered_page = template.render(cars=cars)
 
