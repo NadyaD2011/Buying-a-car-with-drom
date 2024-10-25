@@ -1,4 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from livereload import Server
 import json
 
 env = Environment(
@@ -6,13 +7,21 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml'])
 )
 
-template = env.get_template('template.html')
 
-with open("my.json", "r") as file:
-  cars = json.load(file)
-print(type(cars))
+def rebuild():
+    template = env.get_template('template.html')
 
-rendered_page = template.render(cars=cars)
+    with open('my.json', 'r', encoding='utf8') as file:
+        cars = json.load(file)
 
-with open('index.html', 'w', encoding="utf8") as file:
-  file.write(rendered_page)
+    rendered_page = template.render(cars=cars)
+
+    with open('index.html', 'w', encoding='utf8') as file:
+        file.write(rendered_page)
+
+
+rebuild()
+
+server = Server()
+server.watch('template.html', rebuild)
+server.serve(root='.')
