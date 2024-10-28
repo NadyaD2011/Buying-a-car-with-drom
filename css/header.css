@@ -45,23 +45,22 @@ img {
     font-size: 32px;
     margin: 15px;
 }
+.table_brands {
+    width: 100%;
+}
 .brands{
     display: flex;
-    width: 100%;
     flex-wrap: wrap;
+    width: 100%;
+    margin-left: 15px;
 }
 .card_brand{
-    margin-right: 100px;
+    width: 20%;
     display: flex;
-    justify-content: space-between;
-}
-.card_brand:nth-child(5n+1) {
-    margin-left: 20px;
+    align-items: center;
 }
 .brand_name{
     font-size: 25px;
-    display: flex;
-    align-items: center;
     margin-left: 15px;
     margin-bottom: 5px;
     color: black;
