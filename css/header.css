@@ -78,7 +78,7 @@ img {
     width: 85%;
     height: 300px;
     position: relative;
-    border-radius: 3%;
+    border-radius: 10% 0% 0% 10%;
     margin-bottom: 20px;
 }
 .card_img-block {
@@ -124,8 +124,8 @@ img {
     height: 25px;
 }
 .card_car:hover{
-    background-color: #f7f6f6;
+    background-color: #efeded;
 }
 .brand_name:hover{
-    color:#4f4f4f
+    color:#4f4f4f;
 }
