@@ -38,7 +38,7 @@ a {
     text-decoration: none;
     color:#0f1113;
 }
-img {
+.head_img {
     vertical-align: middle;
     border-style: none;
 }
@@ -64,67 +64,6 @@ img {
     font-size: 25px;
     margin-left: 15px;
     margin-bottom: 5px;
-}
-#text_1{
-    margin-left: 15px;
-}
-.cards_car {
-    width: 100%;
-    padding: 7.5px;
-    margin: 7.5px;
-} 
-.card_car {
-    display: flex;
-    width: 85%;
-    height: 300px;
-    position: relative;
-    border-radius: 10% 0% 0% 10%;
-    margin-bottom: 20px;
-}
-.card_img-block {
-    width: 40%;
-    height: 100%;
-    display: flex;
-}
-.card_img {
-    height: 100%;
-    border-radius: 10%;
-}
-.card_info{
-    width: 100%;
-    margin: 10px 20px;
-}
-.car_info_first{
-    display: flex;
-    justify-content: space-between;
-}
-.car_name{
-    font-weight: 500;
-    font-size: 25px;
-}
-.car_cost{
-    font-weight: bold;
-    font-size: 23px;
-    display: flex;
-    margin-right: 35px;
-    align-items: center;
-}
-.card_info_dop{
-    width: 100%;
-}
-.text_info{
-    font-size: 20px;
-}
-.car_cost::after {
-    content: "";
-    background-image: url("../img/rub.svg");
-    display: block;
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-}
-.card_car:hover{
-    background-color: #efeded;
 }
 .brand_name:hover{
     color:#4f4f4f;
