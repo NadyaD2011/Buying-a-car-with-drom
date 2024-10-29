@@ -4,7 +4,7 @@ footer {
 .info_site{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .block_subscription{
     width: 50%;
@@ -12,7 +12,45 @@ footer {
 .block_author-block{
     width: 50%;
 }
-.ico_messenger{
-    width: 20%;
-    height: 20%;
+.text_subscription{
+    margin-left: 10px;
+}
+.ico_messenger:first-child{
+    width: 80px;
+    height: 80px;
+    margin-left: 0;
+}
+.ico_messenger:not(:first-child){
+    width: 15%;
+    height: 15%;
+}
+.ico_messenger:last-child{
+    width: 18%;
+    height: 18%;
+}
+.block_author{
+    display: flex;
+    justify-content: flex-start;
+}
+.icos_messenger{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.dop_info_site{
+    margin: 20px 10px 20px 10px;
+    font-weight: 400;
+    font-size: 15px;
+}
+.block_author{
+    display: flex;
+    align-items: center;
+}
+.ico_scholl{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+.block_author-block p {
+    font-size: 17px;
 }
