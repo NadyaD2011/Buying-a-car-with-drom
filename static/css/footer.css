@@ -1,0 +1,18 @@
+footer {
+    margin-left: 15px;
+}
+.info_site{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.block_subscription{
+    width: 50%;
+}
+.block_author-block{
+    width: 50%;
+}
+.ico_messenger{
+    width: 20%;
+    height: 20%;
+}
