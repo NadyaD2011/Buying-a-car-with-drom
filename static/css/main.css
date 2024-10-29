@@ -69,7 +69,7 @@ button {
     height: 50px;
     color: #454546;
     font-size: 25px;
-    margin: 10px;
+    margin-left: 15px;
 }
 button:hover {
     color: #8c8c8f;
