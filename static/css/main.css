@@ -6,10 +6,10 @@
     padding: 7.5px;
     margin: 7.5px;
 } 
-/* .card_car{
+.card_car{
     display: none
-} */
-.card_car {
+}
+.card_car.active {
     display: flex;
     width: 85%;
     height: 300px;
