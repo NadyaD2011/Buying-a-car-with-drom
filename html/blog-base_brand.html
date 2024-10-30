@@ -6,9 +6,9 @@
     <meta http-equiv="content-type" content="text/html;">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="static/css/header.css" rel="stylesheet" type="text/css" />
-    <link href="static/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
 
     <title>Drom</title>
   </head>
@@ -16,7 +16,7 @@
   <body>
     <header>
       <div class="head_site">
-        <img class="head_img" src="static/img/modern_car.jpg" alt="машина">
+        <img class="head_img" src="/static/img/modern_car.jpg" alt="машина">
         <a href="" class="a_name_site"><h2 class="name_site">ДРОМ</h2></a>
         <p class="dop_name_site">Продажа авто в России</p>
       </div>
@@ -26,9 +26,9 @@
       <div class="cards_car">
         <!--Начало карточки машины -->
         {% for car in cars %}
-            <div class="card_car">
+            <div class="car_card">
               <div class="card_img-block">
-                <a href><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
+                <a href><img class="card_img" src="car.image" alt="картинка машины"></a>
               </div>
               <div class="card_info">
                 <div class="car_info_first">
@@ -73,6 +73,6 @@
         <p class="info_text">Данный Интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса Российской Федерации.  Права на сайт принадлежат нам (ИНН 5047254063, ОГРН 1215000076279 от 21 октября 2024 года) тел. +7 (000) 00-00-00, адрес эл. почты reception@drom.ru</p>
       </div>
     </footer>
-    <!-- <script src="../static/script/script.js"></script> -->
+    <script src="../static/script/script.js"></script>
   </body>
 </html>

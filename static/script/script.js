@@ -1,10 +1,6 @@
 const btn = document.querySelector('.button');
 const cardLetter = document.querySelectorAll('.car_card').length;
-let items = 15;
-
-if (items >= cardLetter) {
-    btn.style.display = 'none';
-}
+let items = 10;
 
 if (items >= cardLetter) {
     btn.style.display = 'none';
