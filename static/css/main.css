@@ -6,7 +6,7 @@
     padding: 7.5px;
     margin: 7.5px;
 }
-.car_card:not(:nth-child(-n + 5)) {
+.car_card:not(:nth-child(-n + 15)) {
     display: none;
 }
 .car_card {

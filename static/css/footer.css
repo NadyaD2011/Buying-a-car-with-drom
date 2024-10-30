@@ -34,8 +34,11 @@ footer {
 }
 .icos_messenger{
     display: flex;
-    justify-content: flex-start;
+    justify-content: left;
     align-items: center;
+}
+.ico_messenger{
+    margin-right: 2%;
 }
 .dop_info_site{
     margin: 20px 10px 20px 10px;
