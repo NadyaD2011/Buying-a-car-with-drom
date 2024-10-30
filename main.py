@@ -3,20 +3,20 @@ from livereload import Server
 import json
 
 env = Environment(
-  loader=FileSystemLoader("."), autoescape=select_autoescape(["html", "xml"])
+    loader=FileSystemLoader("."), autoescape=select_autoescape(["html", "xml"])
 )
 
 
 def rebuild():
-  template = env.get_template("html/blog-base.html")
+    template = env.get_template("html/blog-base.html")
 
-  with open("my.json", "r", encoding="utf8") as file:
-    cars = json.load(file)
+    with open("my.json", "r", encoding="utf8") as file:
+        cars = json.load(file)
 
-  rendered_page = template.render(cars=cars)
+    rendered_page = template.render(cars=cars)
 
-  with open("index.html", "w", encoding="utf8") as file:
-    file.write(rendered_page)
+    with open("index.html", "w", encoding="utf8") as file:
+        file.write(rendered_page)
 
 
 rebuild()
