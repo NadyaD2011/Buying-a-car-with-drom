@@ -6,6 +6,10 @@ if (items >= cardLetter) {
     btn.style.display = 'none';
 }
 
+if (items >= cardLetter) {
+    btn.style.display = 'none';
+}
+
 btn.addEventListener('click', () => {
     items += 10;
     const array = Array.from(document.querySelectorAll('.car_card'));
