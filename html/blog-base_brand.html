@@ -6,9 +6,9 @@
     <meta http-equiv="content-type" content="text/html;">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="../static/css/header.css" rel="stylesheet" type="text/css" />
-    <link href="../static/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
 
     <title>Drom</title>
   </head>
@@ -16,31 +16,38 @@
   <body>
     <header>
       <div class="head_site">
-        <img class="head_img" src="../static/img/modern_car.jpg" alt="машина">
+        <img class="head_img" src="/static/img/modern_car.jpg" alt="машина">
         <a href="" class="a_name_site"><h2 class="name_site">ДРОМ</h2></a>
         <p class="dop_name_site">Продажа авто в России</p>
       </div>
     </header>
-    <hr style="border: none; border-top: 3px solid #e2e0e0; width: 97%;">
     <main>
       <h1 id="text_1">Объявления:</h1>
       <div class="cards_car">
-        <div class="car_card"><!--Начало карточки машины -->
-          <div class="card_img-block">
-            <a href=""><img class="card_img" src="https://s2.auto.drom.ru/photo/v2/3reCQyPhpjVCZLu_vps-9ZskP5vOucvNfsMmAqKUsH4wZkfwLHouqiYWmhjgsk0wfzw_SHBtzTyI2JXl/gen1200.jpg" alt="картинка машины"></a>
-          </div>
-          <div class="card_info">
-            <div class="car_info_first">
-              <div class="car_name">Opel Mokka, 2013</div>
-              <div class="car_cost">1 400 000</div>
+        <!--Начало карточки машины -->
+        {% for car in cars %}
+            <div class="car_card">
+              <div class="card_img-block">
+                <a href><img class="card_img" src="car.image" alt="картинка машины"></a>
+              </div>
+              <div class="card_info">
+                <div class="car_info_first">
+                  <div class="car_name">{{car.model}}</div>
+                  <div class="car_cost">{{car.price}}</div>
+                </div>
+                <div class="card_info_dop">
+                  {% if car.mileage %}
+                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км</p>
+                  {% else %}
+                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
+                  {% endif %}
+                </div>
+              </div>
             </div>
-            <div class="card_info_dop">
-              <p class="text_info">1.8 (140 л.с), бензин, АКПП, 4WD, 180 000 км<p>
-            </div>
-          </div>
-        </div><!--Конец карточки машины -->
+        {% endfor %}
+          <!--Конец карточки машины -->
       </div>
-      <button class="button" type="button">Показать больше</button>
+    <button class="button" type="button">Показать больше</button>
     </main>
     <hr style="border: none; border-top: 3px solid #e2e0e0; width: 97%;">
     <footer>
@@ -48,15 +55,15 @@
         <div class="block_subscription">
           <h1 class="text_subscription">Подпишись на нас</h1>
           <div class="icos_messenger">
-            <img class='ico_messenger' src="../static/img/ico_vk.jpg" alt="иконка VK">
-            <img class='ico_messenger' src="../static/img/ico_inst.png" alt="иконка INST">
-            <img class='ico_messenger' src="../static/img/ico_wp.png" alt="иконка Whatchap">
-            <img class='ico_messenger' src="../static/img/ico_tg.png" alt="иконка TG">
+            <img class='ico_messenger' src="static/img/ico_vk.jpg" alt="иконка VK">
+            <img class='ico_messenger' src="static/img/ico_inst.png" alt="иконка INST">
+            <img class='ico_messenger' src="static/img/ico_wp.png" alt="иконка Whatchap">
+            <img class='ico_messenger' src="static/img/ico_tg.png" alt="иконка TG">
           </div>
         </div>
         <div class="block_author-block">
           <div class="block_author">
-            <img class='ico_scholl' src="../static/img/ico_scholl.jpg" alt="иконка школы">
+            <img class='ico_scholl' src="static/img/ico_scholl.jpg" alt="иконка школы">
             <h1>Третье место</h1>
           </div>
           <p>Данный проект выполнен для школы "Третье место" в обучающих целях</p>
