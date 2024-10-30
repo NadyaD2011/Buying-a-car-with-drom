@@ -1,15 +1,19 @@
 const btn = document.querySelector('.button');
 const cardLetter = document.querySelectorAll('.car_card').length;
-let items = 5;
+let items = 15;
+
+if (items >= cardLetter) {
+    btn.style.display = 'none';
+}
 
 btn.addEventListener('click', () => {
-    items += 5;
-    const array = Array.from(document.querySelector('cards_car').children);
+    items += 10;
+    const array = Array.from(document.querySelectorAll('.car_card'));
     const visItems = array.slice(0, items);
 
     visItems.forEach(el => el.classList.add('active'));
 
-    if (visItems.length === cardLetter) {
-        btn.style.display == 'none';
+    if (visItems.length >= cardLetter) {
+        btn.style.display = 'none';
     }
 });
