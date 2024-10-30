@@ -38,24 +38,24 @@
       <div class="cards_car">
         <!--Начало карточки машины -->
         {% for car in cars %}
-            <div class="card_car">
-              <div class="card_img-block">
-                <a href=""><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
+          <div class="card_car">
+            <div class="card_img-block">
+              <a href=""><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
+            </div>
+            <div class="card_info">
+              <div class="car_info_first">
+                <div class="car_name">{{car.model}}</div>
+                <div class="car_cost">{{car.price}}</div>
               </div>
-              <div class="card_info">
-                <div class="car_info_first">
-                  <div class="car_name">{{car.model}}</div>
-                  <div class="car_cost">{{car.price}}</div>
-                </div>
-                <div class="card_info_dop">
-                  {% if car.mileage %}
-                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км<p>
-                  {% else %}
-                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
-                  {% endif %}
-                </div>
+              <div class="card_info_dop">
+                {% if car.mileage %}
+                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км<p>
+                {% else %}
+                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
+                {% endif %}
               </div>
             </div>
+          </div>
         {% endfor %}
         <!--Конец карточки машины -->
       </div>
