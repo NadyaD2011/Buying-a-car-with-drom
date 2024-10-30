@@ -33,6 +33,13 @@
       </div>
     </header>
     <hr style="border: none; border-top: 3px solid #e2e0e0; width: 97%;">
+
+      <div class="cards_car">
+      <!--Начало карточки машины -->
+      {% for car in cars %}
+          <div class="car_card">
+            <div class="card_img-block">
+              <a href><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
             </div>
             <div class="card_info">
               <div class="car_info_first">
@@ -48,7 +55,8 @@
               </div>
             </div>
           </div>
-        <!--Конец карточки машины -->
+      {% endfor %}
+      <!--Конец карточки машины -->
     </div>
   </main>
     <hr style="border: none; border-top: 3px solid #e2e0e0; width: 97%;">

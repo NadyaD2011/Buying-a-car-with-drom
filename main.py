@@ -8,7 +8,7 @@ env = Environment(
 
 
 def rebuild():
-  template = env.get_template("html/blog-base.html")
+  template = env.get_template("html/blog-base_brand.html")
 
   with open("my.json", "r", encoding="utf8") as file:
     cars = json.load(file)
@@ -22,5 +22,5 @@ def rebuild():
 rebuild()
 
 server = Server()
-server.watch("html/blog-base.html", rebuild)
+server.watch("html/blog-base_brand.html", rebuild)
 server.serve(root=".")
