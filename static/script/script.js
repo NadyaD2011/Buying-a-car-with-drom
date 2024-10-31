@@ -1,13 +1,13 @@
 const btn = document.querySelector('.button');
 const cardLetter = document.querySelectorAll('.car_card').length;
-let items = 10;
+let items = 5;
 
 if (items >= cardLetter) {
     btn.style.display = 'none';
 }
 
 btn.addEventListener('click', () => {
-    items += 10;
+    items += 4;
     const array = Array.from(document.querySelectorAll('.car_card'));
     const visItems = array.slice(0, items);
 

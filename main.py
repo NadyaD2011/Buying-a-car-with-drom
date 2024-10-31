@@ -10,7 +10,7 @@ env = Environment(
 def rebuild():
     template = env.get_template("html/blog-base.html")
 
-    with open("my.json", "r", encoding="utf8") as file:
+    with open("cars_data.json", "r", encoding="utf8") as file:
         cars = json.load(file)
 
     rendered_page = template.render(cars=cars)
