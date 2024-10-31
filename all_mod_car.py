@@ -3,22 +3,36 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
+
 def parse_car_brands():
-    car_brands = []
-    car_links = []
+    """Парсит ссылки и иконки марок автомобилей."""
+    car_brands = {}
     url = 'https://auto.drom.ru/'
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     car_elements = soup.find_all(class_='css-m7q1zs e4ojbx42')
+    
+    icons_folder = "media/icons"
+    if not os.path.exists(icons_folder):
+        os.makedirs(icons_folder)
+    
+    for number in range(5):
+        car_name = car_elements[number].find('span', class_='css-1kb7l9z e162wx9x0').text.strip()
+        car_link = car_elements[number].find('a', class_='css-1q66we5 e4ojbx43')['href']
+        
+        icon_element = car_elements[number].find(class_='evrha4s0')
+        icon_url = icon_element['src']
+        icon_filename = f"{icons_folder}/{car_name}.png"
+        download_image(icon_url, icon_filename)
+        
+        car_brands[car_name] = {
+            'link': car_link,
+            'icon_url': icon_url
+        }
 
-    for element in car_elements:
-        car_name = element.find('span', class_='css-1kb7l9z e162wx9x0').text.strip()
-        car_link = element.find('a', class_='css-1q66we5 e4ojbx43')['href']
-        car_brands.append(car_name)
-        car_links.append(car_link)
+    return car_brands
 
-    return car_brands[:5], car_links[:5]
 
 def parse_car_details(base_url):
     if not os.path.exists("media"):
@@ -26,9 +40,10 @@ def parse_car_details(base_url):
 
     params = {
         'ph': '1',
-        'unsold': '1'
+        'unsold': '1',
+        'location': 'spb'
     }
-    cars = []
+    cars = {}
     for page_number in range(1, 11):
         url = f"{base_url}all/page{page_number}/" if page_number > 1 else f"{base_url}all/"
         response = requests.get(url, params=params)
@@ -51,10 +66,10 @@ def parse_car_details(base_url):
             mileage = description_items[4].text.strip().replace('\xa0', '') if len(description_items) > 4 else ''
 
             price_element = soup.find('span', {'data-ftid': 'bull_price'})
-            price = price_element.text.replace('\xa0', '')
+            price = price_element.text.replace('\xa0', '') if price_element else 'Не найден'
 
             location_element = soup.find('span', {'data-ftid': 'bull_location'})
-            city = location_element.text.strip() 
+            city = location_element.text.strip() if location_element else 'Не найден'
 
             link_element = card.find('a', class_='g6gv8w4 g6gv8w8 _1ioeqy90', attrs={'data-ftid': 'bull_title'})
             ad_link = link_element['href'] if link_element else None
@@ -71,12 +86,13 @@ def parse_car_details(base_url):
                 'mileage': mileage,
                 'image_url': image_url
             }
-            cars.append(car_details)
+            cars[model] = car_details
 
             image_filename = f"media/{model}.jpg"
             download_image(image_url, image_filename)
 
     return cars
+
 
 def download_image(url, filepath):
     response = requests.get(url)
@@ -84,15 +100,19 @@ def download_image(url, filepath):
         for chunk in response.iter_content(1024):
             file.write(chunk)
 
+
 def main():
-    all_cars = []
-    brands, links = parse_car_brands()
+    all_cars = {}
+    brands = parse_car_brands()
 
-    for brand, link in zip(brands, links):
-        cars = {}
-        cars[brand] = parse_car_details(link)
-        all_cars.append(cars)
-
+    for brand_name, brand_info in brands.items():
+        brand_cars = parse_car_details(brand_info['link'])
+        all_cars[brand_name] = {
+            'link': brand_info['link'],
+            'icon_url': brand_info['icon_url'],
+            'cars': brand_cars
+        }
+        
     with open("cars_data.json", "w", encoding="utf-8") as json_file:
         json.dump(all_cars, json_file, ensure_ascii=False, indent=2)
 
