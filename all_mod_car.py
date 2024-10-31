@@ -85,7 +85,7 @@ def download_image(url, filepath):
             file.write(chunk)
 
 def main():
-    all_cars = {}
+    all_cars = []
     brands, links = parse_car_brands()
     for brand, link in zip(brands, links):
         all_cars[brand] = parse_car_details(link)
