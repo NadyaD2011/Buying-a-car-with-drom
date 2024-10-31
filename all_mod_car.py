@@ -85,10 +85,13 @@ def download_image(url, filepath):
             file.write(chunk)
 
 def main():
-    all_cars = {}
+    all_cars = []
     brands, links = parse_car_brands()
+
     for brand, link in zip(brands, links):
-        all_cars[brand] = parse_car_details(link)
+        cars = {}
+        cars[brand] = parse_car_details(link)
+        all_cars.append(cars)
 
     with open("cars_data.json", "w", encoding="utf-8") as json_file:
         json.dump(all_cars, json_file, ensure_ascii=False, indent=2)
