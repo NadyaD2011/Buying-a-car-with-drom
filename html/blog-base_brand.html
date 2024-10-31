@@ -26,24 +26,24 @@
       <div class="cards_car">
         <!--Начало карточки машины -->
         {% for car in cars %}
-            <div class="car_card">
-              <div class="card_img-block">
-                <a href><img class="card_img" src="car.image" alt="картинка машины"></a>
+          <div class="car_card">
+            <div class="card_img-block">
+              <a href><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
+            </div>
+            <div class="card_info">
+              <div class="car_info_first">
+                <div class="car_name">{{car.model}}</div>
+                <div class="car_cost">{{car.price}}</div>
               </div>
-              <div class="card_info">
-                <div class="car_info_first">
-                  <div class="car_name">{{car.model}}</div>
-                  <div class="car_cost">{{car.price}}</div>
-                </div>
-                <div class="card_info_dop">
-                  {% if car.mileage %}
-                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км</p>
-                  {% else %}
-                    <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
-                  {% endif %}
-                </div>
+              <div class="card_info_dop">
+                {% if car.mileage %}
+                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км</p>
+                {% else %}
+                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
+                {% endif %}
               </div>
             </div>
+          </div>
         {% endfor %}
           <!--Конец карточки машины -->
       </div>
@@ -73,6 +73,6 @@
         <p class="info_text">Данный Интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса Российской Федерации.  Права на сайт принадлежат нам (ИНН 5047254063, ОГРН 1215000076279 от 21 октября 2024 года) тел. +7 (000) 00-00-00, адрес эл. почты reception@drom.ru</p>
       </div>
     </footer>
-    <script src="../static/script/script.js"></script>
+    <script src="static/script/script.js"></script>
   </body>
 </html>
