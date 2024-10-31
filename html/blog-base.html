@@ -36,26 +36,24 @@
       <div class="cards_car">
       <!--Начало карточки машины -->
       {% for car in cars %}
-        {% for index in range(3) %}
-          <div class="car_card">
-            <div class="card_img-block">
-              <a href="{{car[index].ad_link}}"><img class="card_img" src="{{car[index].image_url}}" alt="картинка машины"></a>
+        <div class="car_card">
+          <div class="card_img-block">
+            <a href="{{car.ad_link}}"><img class="card_img" src="{{car.image_url}}" alt="картинка машины"></a>
+          </div>
+          <div class="card_info">
+            <div class="car_info_first">
+              <div class="car_name">{{car.model}}</div>
+              <div class="car_cost">{{car.price}}</div>
             </div>
-            <div class="card_info">
-              <div class="car_info_first">
-                <div class="car_name">{{car[index].model}}</div>
-                <div class="car_cost">{{car[index].price}}</div>
-              </div>
-              <div class="card_info_dop">
-              {% if car[index].mileage %}
-                <p class="text_info">{{car[index].engine_volume}} {{car[index].fuel_type}}, {{car[index].transmission}}, {{car[index].drive}}, {{car[index].mileage}} км<p>
-              {% else %}
-                <p class="text_info">{{car[index].engine_volume}} {{car[index].fuel_type}}, {{car[index].transmission}}, {{car[index].drive}}</p>
-              {% endif %}
-              </div>
+            <div class="card_info_dop">
+            {% if car.mileage %}
+              <p class="text_info">{{car.engine_volume}} {{car.fuel_type}}, {{car.transmission}}, {{car.drive}}, {{car.mileage}} км<p>
+            {% else %}
+              <p class="text_info">{{car.engine_volume}} {{car.fuel_type}}, {{car.transmission}}, {{car.drive}}</p>
+            {% endif %}
             </div>
           </div>
-        {% endfor %}
+        </div>
       {% endfor %}
       <!--Конец карточки машины -->
     </div>
