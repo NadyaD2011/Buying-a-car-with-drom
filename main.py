@@ -24,4 +24,3 @@ rebuild()
 server = Server()
 server.watch("html/blog-base.html", rebuild)
 server.serve(root=".")
-
