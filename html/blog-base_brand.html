@@ -28,7 +28,7 @@
         {% for car in cars %}
           <div class="car_card">
             <div class="card_img-block">
-              <a href><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
+              <a href="{{car.ad_link}}"><img class="card_img" src="{{car.image_url}}" alt="картинка машины"></a>
             </div>
             <div class="card_info">
               <div class="car_info_first">
@@ -36,11 +36,11 @@
                 <div class="car_cost">{{car.price}}</div>
               </div>
               <div class="card_info_dop">
-                {% if car.mileage %}
-                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км</p>
-                {% else %}
-                  <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
-                {% endif %}
+              {% if car.mileage %}
+                <p class="text_info">{{car.engine_volume}} {{car.fuel_type}}, {{car.transmission}}, {{car.drive}}, {{car.mileage}} км</p>
+              {% else %}
+                <p class="text_info">{{car.engine_volume}} {{car.fuel_type}}, {{car.transmission}}, {{car.drive}}</p>
+              {% endif %}
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@
         <div class="brands">
           {% for car in cars %}
             <div class="card_brand">
-              <img class="brand_img" src="{{car.brand_logo}}" alt="изображение машины">
+              <img class="brand_img" src="{{car.brand_logo}}" alt="логотип марки машины">
               <a href="html/blog-base_brand.html" class="brand_name">{{car.brand_name}}</a>
             </div>
           {% endfor %}
@@ -36,24 +36,26 @@
       <div class="cards_car">
       <!--Начало карточки машины -->
       {% for car in cars %}
-        <div class="car_card">
-          <div class="card_img-block">
-            <a href=""><img class="card_img" src="{{car.image}}" alt="картинка машины"></a>
-          </div>
-          <div class="card_info">
-            <div class="car_info_first">
-              <div class="car_name">{{car.model}}</div>
-              <div class="car_cost">{{car.price}}</div>
+        {% for index in range(3) %}
+          <div class="car_card">
+            <div class="card_img-block">
+              <a href="{{car[index].ad_link}}"><img class="card_img" src="{{car[index].image_url}}" alt="картинка машины"></a>
             </div>
-            <div class="card_info_dop">
-              {% if car.mileage %}
-                <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}, {{car.mileage}} км<p>
+            <div class="card_info">
+              <div class="car_info_first">
+                <div class="car_name">{{car[index].model}}</div>
+                <div class="car_cost">{{car[index].price}}</div>
+              </div>
+              <div class="card_info_dop">
+              {% if car[index].mileage %}
+                <p class="text_info">{{car[index].engine_volume}} {{car[index].fuel_type}}, {{car[index].transmission}}, {{car[index].drive}}, {{car[index].mileage}} км<p>
               {% else %}
-                <p class="text_info">{{car. horsepower}}, {{car.fuel_type}}, {{transmission}}, {{car.gear}}</p>
+                <p class="text_info">{{car[index].engine_volume}} {{car[index].fuel_type}}, {{car[index].transmission}}, {{car[index].drive}}</p>
               {% endif %}
+              </div>
             </div>
           </div>
-        </div>
+        {% endfor %}
       {% endfor %}
       <!--Конец карточки машины -->
     </div>
