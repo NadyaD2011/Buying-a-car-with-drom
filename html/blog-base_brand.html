@@ -25,7 +25,7 @@
       <h1 id="text_1">Объявления:</h1>
       <div class="cards_car">
         <!--Начало карточки машины -->
-        {% for car in cars %}
+        {% for car in cars_list %}
           <div class="car_card">
             <div class="card_img-block">
               <a href="{{car.ad_link}}"><img class="card_img" src="{{car.image_url}}" alt="картинка машины"></a>

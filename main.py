@@ -19,7 +19,7 @@ def rebuild():
 
     with open("index.html", "w", encoding="utf8") as file:
         file.write(rendered_page)
-    
+
 
 def create_brand_file():
     template = env.get_template("html/blog-base_brand.html")
@@ -29,12 +29,11 @@ def create_brand_file():
 
     index_path = "index_path/"
     os.makedirs(index_path, exist_ok=True)
-    
+
     for brand_name in cars:
         card_list = cars[brand_name]
         rendered_page = template.render(brand_name=brand_name, card_list=card_list)
-        name_file = urljoin(index_path, f'index_{brand_name}.html')
-        print(name_file)
+        name_file = urljoin(index_path, f"index_{brand_name}.html")
         with open(name_file, "w", encoding="utf8") as file:
             file.write(rendered_page)
 
@@ -42,6 +41,6 @@ def create_brand_file():
 create_brand_file()
 rebuild()
 
-# server = Server()
-# server.watch("html/blog-base_brand.html", rebuild)
-# server.serve(root=".")
+server = Server()
+server.watch("html/blog-base_brand.html", rebuild)
+server.serve(root=".")
