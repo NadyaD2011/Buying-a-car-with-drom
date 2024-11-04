@@ -9,36 +9,38 @@ env = Environment(
 )
 
 
-def rebuild(index_path):
+def rebuild():
     template = env.get_template("html/blog-base.html")
-    for brand_name in cars:
-        card_list = cars[brand_name]
-        cars_list = []
-        for card_car in card_list["cars"]:
-            cars_list.append(card_list["cars"][card_car])
-            rendered_page = template.render(brand_name=brand_name, cars_list=cars_list)
-            name_file = urljoin(index_path, 'index.html')
-            with open(name_file, "w", encoding="utf8") as file:
-                file.write(rendered_page)
+
+    with open("cars_data.json", "r", encoding="utf8") as file:
+        cars = json.load(file)
+
+    rendered_page = template.render(cars=cars)
+
+    with open("index.html", "w", encoding="utf8") as file:
+        file.write(rendered_page)
 
 
-def create_brand_file(index_path):
+def create_brand_file():
     template = env.get_template("html/blog-base_brand.html")
+
+    with open("cars_data.json", "r", encoding="utf8") as file:
+        cars = json.load(file)
+
+    index_path = "index_path/"
+    os.makedirs(index_path, exist_ok=True)
+
     for brand_name in cars:
         card_list = cars[brand_name]
-        cars_list = []
-        for card_car in card_list["cars"]:
-            cars_list.append(card_list["cars"][card_car])
-            rendered_page = template.render(brand_name=brand_name, cars_list=cars_list)
-            name_file = urljoin(index_path, f'index_{brand_name}.html')
-            with open(name_file, "w", encoding="utf8") as file:
-                file.write(rendered_page)
+        rendered_page = template.render(brand_name=brand_name, card_list=card_list)
+        name_file = urljoin(index_path, f"index_{brand_name}.html")
+        with open(name_file, "w", encoding="utf8") as file:
+            file.write(rendered_page)
 
 
-create_brand_file(index_path)
-rebuild(index_path)
-
+create_brand_file()
+rebuild()
 
 server = Server()
-server.watch("html/*.html", rebuild, create_brand_file)
-server.serve(root="index_path/index.html")
+server.watch("html/blog-base_brand.html", rebuild)
+server.serve(root=".")
