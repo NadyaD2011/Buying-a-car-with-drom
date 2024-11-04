@@ -15,25 +15,25 @@
     <div class="container mt-3">
       <div class="row">
         {% for car in cars %}
-          <div class="col-4">
-            <div class="card">
-              <img src="{{ car.image }}" class="card-img-top" alt="изображение машины">
-              <div class="card-body">
-                <h5 class="card-title">{{ car.model }}</h5>
-                <p class="card-text">{{ car.price }}</p>
-                <p class="card-text">{{ car.year }}</p>
-                <p class="card-text">{{ car.horsepower }}</p>
-                <p class="card-text">{{ car.transmission }}</p>
-                <p class="card-text">{{ car.gear }}</p>
-                <p class="card-text">{{ car.engine }}</p>
-                {% if car.mileage %}
-                  <p class="card-text">{{ car.mileage }}</p>
-                {% else %}
-                  <p class="card-text">информация о пробеге не указана</p>
-                {% endif %}
+            <div class="col-4">
+              <div class="card">
+                <img src="{{ car.image }}" class="card-img-top" alt="изображение машины">
+                <div class="card-body">
+                  <h5 class="card-title">{{ car.model }}</h5>
+                  <p class="card-text">{{ car.price }}</p>
+                  <p class="card-text">{{ car.year }}</p>
+                  <p class="card-text">{{ car.horsepower }}</p>
+                  <p class="card-text">{{ car.transmission }}</p>
+                  <p class="card-text">{{ car.gear }}</p>
+                  <p class="card-text">{{ car.engine }}</p>
+                  {% if car.mileage %}
+                    <p class="card-text">{{ car.mileage }}</p>
+                  {% else %}
+                    <p class="card-text">информация о пробеге не указана</p>
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
         {% endfor %}
       </div>
     </div>
