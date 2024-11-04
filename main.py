@@ -54,6 +54,3 @@ rebuild_base_brand(index_path, cars)
 server = Server()
 server.watch("html/*.html", rebuild_base, rebuild_base_brand)
 server.serve(root=".",  default_filename="index_path/index_BMW.html")
-
-
-
